@@ -1,8 +1,10 @@
-# React + Vite
+# Simple Task Manager Implementation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple task manager implemented in React.js. It allows users to add, delete, and mark tasks as complete. 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key points about implementation
+1. All functionality is contained in a single component
+1. Uses React's useState hook for state management
+1. Includes three main functions: adding, toggling, and deleting tasks
+1. Uses functional updates with setTasks to ensure safe state updates
+1. Implements basic styling for a clean user interface
