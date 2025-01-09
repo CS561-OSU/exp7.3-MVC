@@ -1,8 +1,7 @@
-# React + Vite
+# Exploration 7.3: Task Manager App
+Using React.js, this project implements two versions of a simple task manager that users can use to add and remove tasks, and mark tasks as complete:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+* The version in `feature/simple-task-manager` uses React's built-in state management to manage tasks.
+* The version in `feature/mvc-task-manager` demonstrates the use of the MVC architectural pattern to manage tasks.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The README file in `feature/mvc-task-manager` provides a detailed explanation of the MVC pattern and how it is implemented in the task manager app.
