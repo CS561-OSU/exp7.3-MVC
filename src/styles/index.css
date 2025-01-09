@@ -1,0 +1,63 @@
+/* Reset and global styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Task manager container */
+.task-manager {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0052a3;
+}
+
+/* Task list styling */
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.task-list button {
+  margin-left: auto;
+  background-color: #dc3545;
+  font-size: 0.8rem;
+}
+
+.task-list button:hover {
+  background-color: #c82333;
+}
