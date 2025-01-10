@@ -1,16 +1,19 @@
 import React from 'react';
 import './styles/index.css';
 import useTaskModel from './components/model/TaskModel';
-import TaskController from './components/controller/TaskController';
+import useTaskViewModel from './components/viewmodel/TaskViewModel';
+import TaskView from './components/view/TaskView';
 
+// Root component - Assembles the MVVM pattern components
 function App() {
-   // Create a single instance of the model that persists across renders
+    // Create the Model instance
     const model = useTaskModel();
+    
+    // Create the ViewModel instance, passing the model
+    const viewModel = useTaskViewModel(model);
 
-     // Render the Controller component with the model instance
-    return (
-        <TaskController model={model} />
-    );
+    // Render the View with the ViewModel
+    return <TaskView viewModel={viewModel} />;
 }
 
 export default App;

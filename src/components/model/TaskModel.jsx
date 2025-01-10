@@ -1,41 +1,41 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
-// Change from factory function to actual component/hook
+// Task Model - Represents the data layer and business logic
+// Responsible for managing the raw task data and basic CRUD operations
 const useTaskModel = () => {
-    // State to hold the array of tasks
+    // Core state: array of task objects
     const [tasks, setTasks] = useState([]);
 
-    // Add a new task to the tasks array
-    const addTask = useCallback((task) => {
-        setTasks(currentTasks => [...currentTasks, {
-            id: Date.now(),  // Use timestamp as unique identifier
-            text: task,      // The task description
-            completed: false // Initial completion status
+    // Create operation: Add a new task to the collection
+    // Returns void, updates internal state
+    const addTask = useCallback((text) => {
+        setTasks(prev => [...prev, {
+            id: Date.now(),      // Unique identifier
+            text,                // Task description
+            completed: false,     // Initial completion status
+            createdAt: new Date() // Timestamp for sorting
         }]);
     }, []);
 
-    // Toggle the completed status of a task by ID
-    const toggleTask = useCallback((taskId) => {
-        setTasks(currentTasks => currentTasks.map(task =>
-            task.id === taskId 
-                ? { ...task, completed: !task.completed }  // Toggle matched task
-                : task  // Keep others unchanged
+    // Update operation: Modify an existing task
+    // Accepts task id and an object of fields to update
+    const updateTask = useCallback((id, updates) => {
+        setTasks(prev => prev.map(task =>
+            task.id === id ? { ...task, ...updates } : task
         ));
     }, []);
 
-    // Remove a task by ID
-    const deleteTask = useCallback((taskId) => {
-        setTasks(currentTasks => 
-            currentTasks.filter(task => task.id !== taskId)
-        );
+    // Delete operation: Remove a task from collection
+    const deleteTask = useCallback((id) => {
+        setTasks(prev => prev.filter(task => task.id !== id));
     }, []);
 
-    // Return the public interface of the model
+    // Public interface of the model
     return {
-        tasks,
-        addTask,
-        toggleTask,
-        deleteTask
+        tasks,       // Raw task data
+        addTask,     // Create operation
+        updateTask,  // Update operation
+        deleteTask   // Delete operation
     };
 };
 
